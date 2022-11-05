@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:laundry_app/Requestpage.dart';
 
 
 
@@ -161,8 +162,10 @@ class _laundry_appState extends State<laundry_app> {
 
         Padding(
           padding: const EdgeInsets.only(left: 16,right: 16),
+          
           child: TextField(
             decoration: InputDecoration(
+              contentPadding: const EdgeInsets.symmetric(vertical: 16,horizontal: 16),
               filled: true,
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(6),borderSide: BorderSide.none),
               
@@ -178,8 +181,10 @@ class _laundry_appState extends State<laundry_app> {
           Padding(
           padding: const EdgeInsets.only(left: 16,right: 16),
           child: TextField(
+           
             obscureText: true,
             decoration: InputDecoration(
+              contentPadding: const EdgeInsets.symmetric(vertical: 16,horizontal: 16),
               filled: true,
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(6),
               
@@ -215,7 +220,9 @@ class _laundry_appState extends State<laundry_app> {
       width: 340,
       height: 50,
       
-      child: ElevatedButton(onPressed:() {}, child: Text('Log in',style: TextStyle(fontSize: 17),), style: ElevatedButton.styleFrom(backgroundColor: Color.fromARGB(255, 33, 89, 243)),));
+      child: ElevatedButton(onPressed:() {
+        Navigator.push(context,MaterialPageRoute(builder: (context)=> requestpage()) );
+      }, child: Text('Log in',style: TextStyle(fontSize: 17),), style: ElevatedButton.styleFrom(backgroundColor: Color.fromARGB(255, 33, 89, 243)),));
   }
   
   _sigupWithEmail() {
