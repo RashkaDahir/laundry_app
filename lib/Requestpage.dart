@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class requestpage extends StatefulWidget {
   const requestpage({super.key});
@@ -9,19 +10,36 @@ class requestpage extends StatefulWidget {
 }
 
 class _requestpageState extends State<requestpage> {
+   
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
         children: [
+         
+        Container(
+          
+          child: Image.asset('images/map.png')),
+         
+
+
+          
+          
           
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(items: const[
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Color.fromARGB(255, 232, 228, 228),
+        
+        items: const[
 
-        BottomNavigationBarItem(icon: Icon(Icons.person_outlined),label: 'hshsh'),
-        BottomNavigationBarItem(icon: Icon(Icons.r_mobiledata),label: 'hshsh'),
-        BottomNavigationBarItem(icon: Icon(Icons.r_mobiledata),label: 'hshsh'),
+        BottomNavigationBarItem(icon: Icon(Icons.person_outline,size: 30,color: Colors.black,),label: 'Profile',),
+        
+         
+        BottomNavigationBarItem(icon: Icon(Icons.radar),label: 'hshsh'),
+
+        BottomNavigationBarItem(icon: Icon(Icons.radar),label: 'hshsh'),
+
 
 
 
@@ -33,3 +51,18 @@ class _requestpageState extends State<requestpage> {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+//  SvgPicture.asset(
+          //       "images/tabbar.svg",
+          //       color: Colors.red,
+                
+          //     ),
