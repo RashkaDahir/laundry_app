@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+
+
+
 class requestpage extends StatefulWidget {
   const requestpage({super.key});
 
@@ -10,22 +13,32 @@ class requestpage extends StatefulWidget {
 }
 
 class _requestpageState extends State<requestpage> {
-   
+
+  static final CameraPosition _kGooglePlex = CameraPosition(
+    target: LatLng(37.42796133580664, -122.085749655962),
+    zoom: 14.4746,
+  );
+  
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
         children: [
-         
-        Container(
-          
-          child: Image.asset('images/map.png')),
-         
 
-
-          
-          
-          
+          Container(
+            width: 200,
+            height: 400,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(100)
+            ),
+            child: GoogleMap(
+       
+         initialCameraPosition: _kGooglePlex,
+        
+        
+       ),
+          )
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -66,3 +79,18 @@ class _requestpageState extends State<requestpage> {
           //       color: Colors.red,
                 
           //     ),
+
+
+
+
+
+          // GoogleMap(
+       
+//         initialCameraPosition: _kGooglePlex,
+        
+        
+//       ),
+// static final CameraPosition _kGooglePlex = CameraPosition(
+//     target: LatLng(37.42796133580664, -122.085749655962),
+//     zoom: 14.4746,
+//   );
