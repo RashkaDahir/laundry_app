@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -27,8 +29,8 @@ class _requestpageState extends State<requestpage> {
         children: [
 
           Container(
-            width: 200,
-            height: 400,
+            width: double.infinity,
+            height: 200,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(100)
             ),
@@ -38,7 +40,45 @@ class _requestpageState extends State<requestpage> {
         
         
        ),
-          )
+          ),
+
+          
+          Container(
+            
+            width: double.infinity,
+            height: 700,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20),
+    topRight: Radius.circular(20),
+              ),
+              boxShadow: [
+      BoxShadow(
+        color: Colors.grey.withOpacity(0.5),
+        spreadRadius: 50,
+        blurRadius: 7,
+        offset: Offset(0, 3), // changes position of shadow
+      ),
+    ],
+            ),
+            child: ListView(
+              children: [
+                
+              
+                   
+                   ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      Text('ggsgg'),
+               Text('ggsgg'),
+               Text('ggsgg')
+                    ],
+                   )
+              
+              ],
+            )),
+          
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -49,9 +89,9 @@ class _requestpageState extends State<requestpage> {
         BottomNavigationBarItem(icon: Icon(Icons.person_outline,size: 30,color: Colors.black,),label: 'Profile',),
         
          
-        BottomNavigationBarItem(icon: Icon(Icons.radar),label: 'hshsh'),
+        BottomNavigationBarItem(icon: Icon(Icons.tab_rounded),label: 'hshsh'),
 
-        BottomNavigationBarItem(icon: Icon(Icons.radar),label: 'hshsh'),
+        BottomNavigationBarItem(icon: Icon(Icons.alarm),label: 'hshsh'),
 
 
 
