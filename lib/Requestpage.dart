@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -55,43 +56,105 @@ class _requestpageState extends State<requestpage> {
               ),
               boxShadow: [
       BoxShadow(
-        color: Colors.grey.withOpacity(0.5),
-        spreadRadius: 50,
-        blurRadius: 7,
-        offset: Offset(0, 3), // changes position of shadow
+        color: Color.fromARGB(255, 12, 12, 12).withOpacity(0.5),
+        spreadRadius: 5,
+        blurRadius: 18,
+        offset: Offset(0, 3), // ch.anges position of shadow
       ),
     ],
             ),
-            child: ListView(
+            child:Column(
               children: [
+                Row(
+                  
+                  
+                  children: [
+                    
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        height: 60,
+                        color: Colors.red,
+                        child: Text('gsgg'),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        height: 60,
+                        color: Colors.red,
+                        child: Text('gsgg'),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        height: 60,
+                        color: Colors.red,
+                        child: Text('gsgg'),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        height: 60,
+                        color: Colors.red,
+                        child: Text('gsgg'),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        height: 60,
+                        color: Colors.red,
+                        child: Text('gsgg'),
+                      ),
+                    ),
+                    
+                  ],
+                ),
+               
+                SizedBox(height: 400,),
+                Container(
+                  
+                  child: SizedBox(
+                      width: 360,
+                      height: 50,
+                      child: ElevatedButton(
+                      
+                        
+                        style: ElevatedButton.styleFrom(disabledBackgroundColor:Color.fromARGB(255, 26, 80, 228)),
+                        onPressed: null, child: Text('Request Service',style: TextStyle(color: Colors.white),)),
+                    ),
+                  
+                ),
                 
-              
-                   
-                   ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      Text('ggsgg'),
-               Text('ggsgg'),
-               Text('ggsgg')
-                    ],
-                   )
-              
+
+
+
+
               ],
-            )),
+            )
+            
+            
+            
+            
+            ,
+            ),
           
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Color.fromARGB(255, 232, 228, 228),
+        backgroundColor: Color.fromARGB(255, 252, 249, 249),
         
         items: const[
 
         BottomNavigationBarItem(icon: Icon(Icons.person_outline,size: 30,color: Colors.black,),label: 'Profile',),
         
          
-        BottomNavigationBarItem(icon: Icon(Icons.tab_rounded),label: 'hshsh'),
+        BottomNavigationBarItem(icon: Icon(Icons.table_rows,color: Colors.black,),label: 'hshsh'),
 
-        BottomNavigationBarItem(icon: Icon(Icons.alarm),label: 'hshsh'),
+        BottomNavigationBarItem(icon: Icon(Icons.alarm,color: Colors.black,),label: 'hshsh'),
 
 
 
@@ -124,13 +187,3 @@ class _requestpageState extends State<requestpage> {
 
 
 
-          // GoogleMap(
-       
-//         initialCameraPosition: _kGooglePlex,
-        
-        
-//       ),
-// static final CameraPosition _kGooglePlex = CameraPosition(
-//     target: LatLng(37.42796133580664, -122.085749655962),
-//     zoom: 14.4746,
-//   );

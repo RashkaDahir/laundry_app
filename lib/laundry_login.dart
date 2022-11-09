@@ -52,17 +52,17 @@ class _laundry_appState extends State<laundry_app> {
               
               _loginbtn(),
 
-              SizedBox(height: 20,),
+              SizedBox(height: 50,),
               Text('OR' ,style: TextStyle(color: Colors.white),),
 
               SizedBox(height: 25,),
 
 
               _sigupWithEmail(),
-               SizedBox(height: 10,),
+               SizedBox(height: 15,),
 
               _Sign_Up_With_Google(),
-              SizedBox(height: 20,),
+              SizedBox(height: 150,),
 
               Text('Terms of Service and Pivacy Policy' ,style: TextStyle(color: Colors.white),textAlign: TextAlign.end,),
                SizedBox(height: 10,),
@@ -208,7 +208,7 @@ class _laundry_appState extends State<laundry_app> {
             children: [
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text('Forget Password?' ,style: TextStyle(color: Colors.white,fontSize: 17,fontWeight: FontWeight.w500),),
+                child: Text('Forget Password?' ,style: TextStyle(color: Colors.white,fontSize: 15,fontWeight: FontWeight.w500),),
               ),
             ],
           );
@@ -218,7 +218,7 @@ class _laundry_appState extends State<laundry_app> {
 
     return SizedBox(
       width: 340,
-      height: 50,
+      height: 45,
       
       child: ElevatedButton(onPressed:() {
         Navigator.push(context,MaterialPageRoute(builder: (context)=> requestpage()) );
@@ -228,9 +228,9 @@ class _laundry_appState extends State<laundry_app> {
   _sigupWithEmail() {
      return SizedBox(
       width: 340,
-      height: 50,
+      height: 44,
       
-      child: ElevatedButton(onPressed:() {}, child: Text('Sign Up With Email',style: TextStyle(fontSize: 17),), style: ElevatedButton.styleFrom(backgroundColor: Color.fromARGB(255, 33, 89, 243)),));
+      child: ElevatedButton(onPressed:() {}, child: Text('Sign Up With Email',style: TextStyle(fontSize: 15),), style: ElevatedButton.styleFrom(backgroundColor: Color.fromARGB(255, 33, 89, 243)),));
 
 
 
@@ -239,9 +239,9 @@ class _laundry_appState extends State<laundry_app> {
   _Sign_Up_With_Google() {
      return SizedBox(
       width: 340,
-      height: 50,
+      height: 44,
       
-      child: ElevatedButton(onPressed:() {}, child: Text('Sign Up With Email',style: TextStyle(fontSize: 17,color: Color.fromARGB(255, 5, 42, 189)),), style: ElevatedButton.styleFrom(backgroundColor: Colors.white),));
+      child: ElevatedButton(onPressed:() {}, child: Text('Sign Up With Email',style: TextStyle(fontSize: 15,color: Color.fromARGB(255, 5, 42, 189)),), style: ElevatedButton.styleFrom(backgroundColor: Colors.white),));
 
 
 
