@@ -27,11 +27,12 @@ class _requestpageState extends State<requestpage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
+        
         children: [
 
           Container(
             width: double.infinity,
-            height: 200,
+            height: 300,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(100)
             ),
@@ -45,9 +46,10 @@ class _requestpageState extends State<requestpage> {
 
           
           Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
             
-            width: double.infinity,
-            height: 700,
+            
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.only(
@@ -65,56 +67,91 @@ class _requestpageState extends State<requestpage> {
             ),
             child:Column(
               children: [
-                Row(
-                  
-                  
+                 Padding(
+                   padding: const EdgeInsets.only(top: 20),
+                   child: Text('Choose Laundry Store',style: TextStyle( fontSize: 22, color: Colors.black,fontWeight: FontWeight.bold),),
+                 ),
+                 SizedBox(height: 20,),
+              
+              SizedBox(
+              
+                width: double.infinity,
+                height: 220,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
                   children: [
-                    
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        height: 60,
-                        color: Colors.red,
-                        child: Text('gsgg'),
+                   
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          margin: EdgeInsets.only(top: 10),
+                          width: 150,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(20)
+
+
+                          ),
+                          child: Text('sss'),
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        height: 60,
-                        color: Colors.red,
-                        child: Text('gsgg'),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          width: 200,
+                          height: 50,
+                          
+                          decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(20)
+
+
+                          ),
+                          child: Text('sss'),
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        height: 60,
-                        color: Colors.red,
-                        child: Text('gsgg'),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          width: 150,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(20)
+
+
+                          ),
+                          child: Text('sss'),
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        height: 60,
-                        color: Colors.red,
-                        child: Text('gsgg'),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        height: 60,
-                        color: Colors.red,
-                        child: Text('gsgg'),
-                      ),
-                    ),
-                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                   ],
                 ),
-               
-                SizedBox(height: 400,),
+              ),
+                SizedBox(height: 100,),
                 Container(
                   
                   child: SizedBox(
@@ -128,6 +165,19 @@ class _requestpageState extends State<requestpage> {
                     ),
                   
                 ),
+                
+
+
+              
+
+
+
+
+
+
+                
+              
+               
                 
 
 
@@ -164,26 +214,10 @@ class _requestpageState extends State<requestpage> {
       
     );
   }
+  
+ 
+
 }
 
 
-
-
-
-
-
-
-
-
-
-
-//  SvgPicture.asset(
-          //       "images/tabbar.svg",
-          //       color: Colors.red,
-                
-          //     ),
-
-
-
-
-
+ 
