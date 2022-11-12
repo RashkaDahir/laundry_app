@@ -1,9 +1,12 @@
+import 'dart:developer';
 import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:laundry_app/servicelist.dart';
+
 
 
 
@@ -17,37 +20,74 @@ class requestpage extends StatefulWidget {
 
 class _requestpageState extends State<requestpage> {
 
+
+    final List<servicesCat> servicelists=[
+      servicesCat(image:'images/Jack’sLaundry.png', name: 'images/Jack’sLaundry', days: '3.5', price: '\$1.00 / item', rate: '3.5'),
+      servicesCat(image: 'images/Jack’sLaundry.png', name: 'images/Jack’sLaundry', days: '3.5', price: '\$1.00 / item', rate: '3.5'),
+      servicesCat(image: 'images/Jack’sLaundry.png', name: 'images/Jack’sLaundry', days: '3.5', price: '\$1.00 / item', rate: '3.5'),
+
+
+    ];
+
+final List<Color> kMixedColors = [
+    
+];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   static final CameraPosition _kGooglePlex = CameraPosition(
     target: LatLng(37.42796133580664, -122.085749655962),
     zoom: 14.4746,
   );
+
   
   
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
+      body:Column(
         
         children: [
 
           Container(
             width: double.infinity,
-            height: 300,
+            height: 240,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(100)
             ),
             child: GoogleMap(
-       
-         initialCameraPosition: _kGooglePlex,
+        
+          initialCameraPosition: _kGooglePlex,
         
         
-       ),
           ),
+          ),
+
+
+
+
+
+          
 
           
           Container(
             width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
+            height: 566.2,
             
             
             decoration: BoxDecoration(
@@ -67,91 +107,53 @@ class _requestpageState extends State<requestpage> {
             ),
             child:Column(
               children: [
-                 Padding(
-                   padding: const EdgeInsets.only(top: 20),
-                   child: Text('Choose Laundry Store',style: TextStyle( fontSize: 22, color: Colors.black,fontWeight: FontWeight.bold),),
-                 ),
-                 SizedBox(height: 20,),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                    child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                    Text('Choose Laundry Store',style: TextStyle( fontSize: 22, color: Colors.black,fontWeight: FontWeight.bold),),
+                    Image.asset('images/reload.png')
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 20,),
               
               SizedBox(
               
                 width: double.infinity,
-                height: 220,
-                child: ListView(
+                height: 320,
+                
+                child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  children: [
-                   
+                  itemCount:servicelists.length,
+                  itemBuilder:(context, index)  => 
+                  
+                  
+                  new Container(
+                    child: Column(children: [
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          margin: EdgeInsets.only(top: 10),
-                          width: 150,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            color: Colors.red,
-                            borderRadius: BorderRadius.circular(20)
+                            padding: const EdgeInsets.all(8.0),
+                            child: new Container(
+                              width: 300.0,
+                              height: 260.0,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(28),
+                                color: Colors.red),
+                                child:Text('rashka dahir ali geedi'),
+                            
+                            
 
-
+                            )
                           ),
-                          child: Text('sss'),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          width: 200,
-                          height: 50,
-                          
-                          decoration: BoxDecoration(
-                            color: Colors.red,
-                            borderRadius: BorderRadius.circular(20)
+                    ]),
 
-
-                          ),
-                          child: Text('sss'),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          width: 150,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            color: Colors.red,
-                            borderRadius: BorderRadius.circular(20)
-
-
-                          ),
-                          child: Text('sss'),
-                        ),
-                      ),
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                  ],
+                  ),
                 ),
               ),
-                SizedBox(height: 100,),
+
+              SizedBox(height: 60,),
+              
                 Container(
                   
                   child: SizedBox(
@@ -177,7 +179,7 @@ class _requestpageState extends State<requestpage> {
 
                 
               
-               
+            
                 
 
 
@@ -200,8 +202,7 @@ class _requestpageState extends State<requestpage> {
         items: const[
 
         BottomNavigationBarItem(icon: Icon(Icons.person_outline,size: 30,color: Colors.black,),label: 'Profile',),
-        
-         
+
         BottomNavigationBarItem(icon: Icon(Icons.table_rows,color: Colors.black,),label: 'hshsh'),
 
         BottomNavigationBarItem(icon: Icon(Icons.alarm,color: Colors.black,),label: 'hshsh'),
@@ -214,10 +215,5 @@ class _requestpageState extends State<requestpage> {
       
     );
   }
-  
- 
 
 }
-
-
- 
