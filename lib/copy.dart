@@ -47,3 +47,21 @@
 //                           child: Text('sss'),
 //                         ),
 //                       ),
+
+
+
+// bottomNavigationBar: BottomNavigationBar(
+//         backgroundColor: Color.fromARGB(255, 252, 249, 249),
+        
+//         items: const[
+
+//         BottomNavigationBarItem(icon: Icon(Icons.person_outline,size: 30,color: Colors.black,),label: 'Profile',),
+
+//         BottomNavigationBarItem(icon: Icon(Icons.table_rows,color: Colors.black,),label: 'hshsh'),
+
+//         BottomNavigationBarItem(icon: Icon(Icons.alarm,color: Colors.black,),label: 'hshsh'),
+
+
+
+
+//       ]),

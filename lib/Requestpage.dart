@@ -22,33 +22,18 @@ class _requestpageState extends State<requestpage> {
 
 
     final List<servicesCat> servicelists=[
-      servicesCat(image:'images/Jack’sLaundry.png', name: 'images/Jack’sLaundry', days: '3.5', price: '\$1.00 / item', rate: '3.5'),
-      servicesCat(image: 'images/Jack’sLaundry.png', name: 'images/Jack’sLaundry', days: '3.5', price: '\$1.00 / item', rate: '3.5'),
-      servicesCat(image: 'images/Jack’sLaundry.png', name: 'images/Jack’sLaundry', days: '3.5', price: '\$1.00 / item', rate: '3.5'),
 
+
+
+       servicesCat(image: 'images/Jack’sLaundry.png', title: 'Jack’s Laundry', days: '3.5', price: '\$5', rate: '3.7'),
+       servicesCat(image: 'images/Jack’sLaundry.png', title: 'cali', days: '3.5', price: '\$10', rate: '3.7'),
+       servicesCat(image: 'images/Jack’sLaundry.png', title: 'somali shirt', days: '3.5', price: '\$20', rate: '3.7'),
 
     ];
 
 final List<Color> kMixedColors = [
     
 ];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   static final CameraPosition _kGooglePlex = CameraPosition(
     target: LatLng(37.42796133580664, -122.085749655962),
@@ -118,6 +103,9 @@ final List<Color> kMixedColors = [
                     ),
                   ),
                   SizedBox(height: 20,),
+
+
+                  //shirt cat
               
               SizedBox(
               
@@ -126,6 +114,7 @@ final List<Color> kMixedColors = [
                 
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
+
                   itemCount:servicelists.length,
                   itemBuilder:(context, index)  => 
                   
@@ -140,7 +129,22 @@ final List<Color> kMixedColors = [
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(28),
                                 color: Colors.red),
-                                child:Text('rashka dahir ali geedi'),
+                                child:Column(
+                                  
+                                  children: [
+                                    
+                                    
+                                    Text("  ${servicelists[index].title} "),
+                                    Text("  ${servicelists[index].price} "),
+                                    
+                                    // Image.asset("  ${servicelists[index].image} ",fit: BoxFit.cover,)
+                                    
+                                    
+                                   
+                          
+                              
+                                  ],
+                                ),
                             
                             
 
@@ -152,7 +156,7 @@ final List<Color> kMixedColors = [
                 ),
               ),
 
-              SizedBox(height: 60,),
+              SizedBox(height: 10,),
               
                 Container(
                   
@@ -161,12 +165,15 @@ final List<Color> kMixedColors = [
                       height: 50,
                       child: ElevatedButton(
                       
+                      
                         
                         style: ElevatedButton.styleFrom(disabledBackgroundColor:Color.fromARGB(255, 26, 80, 228)),
                         onPressed: null, child: Text('Request Service',style: TextStyle(color: Colors.white),)),
                     ),
                   
                 ),
+
+               
                 
 
 
@@ -197,22 +204,23 @@ final List<Color> kMixedColors = [
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Color.fromARGB(255, 252, 249, 249),
+        backgroundColor: Color.fromARGB(253, 206, 204, 204),
+        
         
         items: const[
+          
 
-        BottomNavigationBarItem(icon: Icon(Icons.person_outline,size: 30,color: Colors.black,),label: 'Profile',),
-
-        BottomNavigationBarItem(icon: Icon(Icons.table_rows,color: Colors.black,),label: 'hshsh'),
-
-        BottomNavigationBarItem(icon: Icon(Icons.alarm,color: Colors.black,),label: 'hshsh'),
+        BottomNavigationBarItem(icon: Icon(Icons.person,size: 30,color: Colors.black,),label: 'Profile',),
+          BottomNavigationBarItem(icon: Icon(Icons.yard_sharp,size: 30,color: Colors.black,),label: 'Profile',),
+            BottomNavigationBarItem(icon: Icon(Icons.alarm_on_outlined,size: 30,color: Colors.black,),label: 'Profile',),
 
 
 
 
       ]),
-    
-      
+
+
+
     );
   }
 
