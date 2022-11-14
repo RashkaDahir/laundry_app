@@ -127,17 +127,32 @@ final List<Color> kMixedColors = [
                               width: 300.0,
                               height: 260.0,
                               decoration: BoxDecoration(
+                                boxShadow: [
+      BoxShadow(
+        color: Color.fromARGB(255, 202, 197, 197).withOpacity(0.5),
+        spreadRadius: 5,
+        blurRadius: 6,
+        offset: Offset(0, 3), // ch.anges position of shadow
+      ),
+    ],
+                                
                                 borderRadius: BorderRadius.circular(28),
-                                color: Colors.red),
+                                color: Colors.white),
+                                
                                 child:Column(
                                   
                                   children: [
                                     
                                     
-                                    Text("  ${servicelists[index].title} "),
-                                    Text("  ${servicelists[index].price} "),
                                     
-                                    // Image.asset("  ${servicelists[index].image} ",fit: BoxFit.cover,)
+                                    
+                                      Image.asset(  servicelists[index].image,fit: BoxFit.cover,),
+                                      Row(
+                                        children: [
+                                          Text("  ${servicelists[index].title} "),
+                                    Text("  ${servicelists[index].price} "),
+                                        ],
+                                      ),
                                     
                                     
                                    
@@ -165,9 +180,7 @@ final List<Color> kMixedColors = [
                       height: 50,
                       child: ElevatedButton(
                       
-                      
-                        
-                        style: ElevatedButton.styleFrom(disabledBackgroundColor:Color.fromARGB(255, 26, 80, 228)),
+                   style: ElevatedButton.styleFrom(disabledBackgroundColor:Color.fromARGB(255, 26, 80, 228)),
                         onPressed: null, child: Text('Request Service',style: TextStyle(color: Colors.white),)),
                     ),
                   
@@ -177,21 +190,7 @@ final List<Color> kMixedColors = [
                 
 
 
-              
-
-
-
-
-
-
-                
-              
-            
-                
-
-
-
-
+    
               ],
             )
             
@@ -210,9 +209,9 @@ final List<Color> kMixedColors = [
         items: const[
           
 
-        BottomNavigationBarItem(icon: Icon(Icons.person,size: 30,color: Colors.black,),label: 'Profile',),
-          BottomNavigationBarItem(icon: Icon(Icons.yard_sharp,size: 30,color: Colors.black,),label: 'Profile',),
-            BottomNavigationBarItem(icon: Icon(Icons.alarm_on_outlined,size: 30,color: Colors.black,),label: 'Profile',),
+        BottomNavigationBarItem(icon: Icon(Icons.person,size: 22,color: Colors.black,),label: 'Profile',),
+          BottomNavigationBarItem(icon: Icon(Icons.yard_sharp,size: 22,color: Colors.black,),label: 'Profile',),
+            BottomNavigationBarItem(icon: Icon(Icons.alarm_on_outlined,size: 22,color: Colors.black,),label: 'Profile',),
 
 
 
