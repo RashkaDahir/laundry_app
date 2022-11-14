@@ -75,7 +75,9 @@ flutter:
     - images/tabbar.svg
     - images/map.png
     - images/reload.png
+    - images/bobs-1.jpg
     - images/Jack’sLaundry.png
+    - images/rose-3.jpg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
