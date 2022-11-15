@@ -40,6 +40,7 @@ dependencies:
   
   cupertino_icons: ^1.0.2
   google_maps_flutter: ^2.2.1
+  font_awesome_flutter: ^10.2.1
   
 
 dev_dependencies:
@@ -75,9 +76,9 @@ flutter:
     - images/tabbar.svg
     - images/map.png
     - images/reload.png
-    - images/bobs-1.jpg
+    - images/bobs_.png
     - images/Jack’sLaundry.png
-    - images/rose-3.jpg
+    - images/rose_3.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

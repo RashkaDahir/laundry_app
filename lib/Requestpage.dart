@@ -6,6 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:laundry_app/servicelist.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import './custom_color.dart';
+import './profilepage.dart';
+import './servicepage.dart';
 
 class requestpage extends StatefulWidget {
   const requestpage({super.key});
@@ -17,7 +21,7 @@ class requestpage extends StatefulWidget {
 class _requestpageState extends State<requestpage> {
   final List<servicesCat> servicelists = [
     servicesCat(
-        image: 'images/bobs-1.jpg',
+        image: 'images/bobs_.png',
         title: 'BOBS Laundry',
         days: '3.5',
         price: '\$5',
@@ -29,14 +33,29 @@ class _requestpageState extends State<requestpage> {
         price: '\$10',
         rate: '3.7'),
     servicesCat(
-        image: 'images/rose-3.jpg',
+        image: 'images/rose_3.png',
         title: 'ROSE LAUNDRAY',
         days: '3.5',
         price: '\$20',
         rate: '3.7'),
   ];
+  List pageList = [
+    const profilepage(),
+    const requestpage(),
+    const servicepage(),
+   
+  ];
+  // String currentPage;
+  int _selectedIndex = 1;
+  void onItemTapped(int index) {
+  setState(() {
+    // currentPage =pageList[0];
+    _selectedIndex = index;
+  });
+}
 
-  final List<Color> kMixedColors = [];
+
+
 
   static final CameraPosition _kGooglePlex = CameraPosition(
     target: LatLng(37.42796133580664, -122.085749655962),
@@ -54,7 +73,7 @@ class _requestpageState extends State<requestpage> {
               Stack(
                 children: [
                   Container(
-                    height: height * 0.3,
+                    height: height * 0.25,
                     decoration: BoxDecoration(),
                     child: GoogleMap(
                       initialCameraPosition: _kGooglePlex,
@@ -66,9 +85,9 @@ class _requestpageState extends State<requestpage> {
 //container-radius
 
               Container(
-                height: 550,
+                height: height *0.7,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color:CustomColors.container_background,
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(30),
                       topRight: Radius.circular(30)),
@@ -95,8 +114,8 @@ class _requestpageState extends State<requestpage> {
                                 'Choose Laundry Store',
                                 style: TextStyle(
                                   fontSize: 28,
-                                  color: Color.fromARGB(255, 23, 23, 23),
-                                  fontWeight: FontWeight.bold,
+                                  color: CustomColors.cont_title,
+                                  fontWeight: FontWeight.w700,
                                 ),
                               ),
                             ),
@@ -124,8 +143,8 @@ class _requestpageState extends State<requestpage> {
                                   Padding(
                                       padding: const EdgeInsets.all(18.0),
                                       child: new Container(
-                                        width: 300,
-                                        height: 270.0,
+                                        width: 330,
+                                        height: 274.0,
                                         
                                         decoration: BoxDecoration(
                                             boxShadow: [
@@ -141,7 +160,7 @@ class _requestpageState extends State<requestpage> {
                                             ],
                                             borderRadius:
                                                 BorderRadius.circular(30),
-                                            color: Colors.white),
+                                             color: CustomColors.card_Color),
                                         child: Column(
                                           children: [
                                             Image.asset(
@@ -159,7 +178,7 @@ class _requestpageState extends State<requestpage> {
                                                   Text(
                                                     "  ${servicelists[index].title}  ",
                                                     style: TextStyle(
-                                                        fontSize: 20,
+                                                        fontSize: 14,
                                                         fontWeight:
                                                             FontWeight.w500),
                                                   ),
@@ -186,7 +205,7 @@ class _requestpageState extends State<requestpage> {
                               )),
                     ),
                     SizedBox(
-                      height: 30,
+                      height: 70,
                     ),
 
                     Container(
@@ -212,36 +231,39 @@ class _requestpageState extends State<requestpage> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Color.fromARGB(251, 255, 255, 255),
+        
+        currentIndex: _selectedIndex,
+        onTap: onItemTapped,
+          backgroundColor: Color.fromARGB(249, 249, 249, 249),
+          type: BottomNavigationBarType.fixed,
           items: const [
             BottomNavigationBarItem(
-              icon: Icon(
-                Icons.person,
-
-                size: 22,
-                color: Color.fromARGB(255, 23, 58, 233),
+              icon: FaIcon(
+                FontAwesomeIcons.user,
+                size: 20,
               ),
               label: 'Profile',
               
               
             ),
             BottomNavigationBarItem(
-              icon: Icon(
-                Icons.local_laundry_service_outlined,
-                size: 30,
-                color: Color.fromARGB(255, 12, 32, 212),
+              icon: FaIcon(
+                FontAwesomeIcons.tableCells,
+                size: 20,
               ),
-              label: 'Profile',
+              
+              label: 'Requist',
             ),
             BottomNavigationBarItem(
-              icon: Icon(
-                Icons.alarm_on_outlined,
-                size: 22,
-                color: Color.fromARGB(255, 43, 7, 223),
+              icon: FaIcon(
+                FontAwesomeIcons.clock,
+                size: 20,
               ),
-              label: 'Prodd',
+              label: 'Service',
             ),
-          ]),
+          ]
+          ,
+          ),
     );
   }
 }
