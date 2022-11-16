@@ -10,7 +10,6 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:laundry_app/laundry_login.dart';
 
-import 'package:laundry_app/main.dart';
 
 
 void main() {

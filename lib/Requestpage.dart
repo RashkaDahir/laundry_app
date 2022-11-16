@@ -1,15 +1,11 @@
-import 'dart:developer';
-import 'dart:math';
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:laundry_app/servicelist.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import './custom_color.dart';
 import './profilepage.dart';
 import './servicepage.dart';
+import './bottomnavition.dart';
 
 class requestpage extends StatefulWidget {
   const requestpage({super.key});
@@ -39,23 +35,7 @@ class _requestpageState extends State<requestpage> {
         price: '\$20',
         rate: '3.7'),
   ];
-  List pageList = [
-    const profilepage(),
-    const requestpage(),
-    const servicepage(),
-   
-  ];
-  // String currentPage;
-  int _selectedIndex = 1;
-  void onItemTapped(int index) {
-  setState(() {
-    // currentPage =pageList[0];
-    _selectedIndex = index;
-  });
-}
-
-
-
+ 
 
   static final CameraPosition _kGooglePlex = CameraPosition(
     target: LatLng(37.42796133580664, -122.085749655962),
@@ -66,8 +46,7 @@ class _requestpageState extends State<requestpage> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
+      body: Container(
           child: Column(
             children: [
               Stack(
@@ -85,9 +64,9 @@ class _requestpageState extends State<requestpage> {
 //container-radius
 
               Container(
-                height: height *0.7,
+                height: height * 0.675,
                 decoration: BoxDecoration(
-                  color:CustomColors.container_background,
+                  color: CustomColors.container_background,
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(30),
                       topRight: Radius.circular(30)),
@@ -125,28 +104,28 @@ class _requestpageState extends State<requestpage> {
                       ),
                     ),
                     SizedBox(
-                      height: 20,
+                      height: 10,
                     ),
 
                     //shirt cat
-
 
                     SizedBox(
                       height: 310,
                       width: double.infinity,
                       child: ListView.builder(
+                        
                           scrollDirection: Axis.horizontal,
                           itemCount: servicelists.length,
-                          itemBuilder: (context, index) => new Container(
-                           
+                          itemBuilder: (context, index) => Container(
                                 child: Column(children: [
                                   Padding(
                                       padding: const EdgeInsets.all(18.0),
-                                      child: new Container(
+                                      child: Container(
                                         width: 330,
-                                        height: 274.0,
+                                        height: 250.0,
                                         
                                         decoration: BoxDecoration(
+                                          
                                             boxShadow: [
                                               BoxShadow(
                                                 color: Color.fromARGB(
@@ -160,12 +139,16 @@ class _requestpageState extends State<requestpage> {
                                             ],
                                             borderRadius:
                                                 BorderRadius.circular(30),
-                                             color: CustomColors.card_Color),
+                                            color: CustomColors.card_Color),
                                         child: Column(
                                           children: [
                                             Image.asset(
+                                              
                                               servicelists[index].image,
                                               fit: BoxFit.cover,
+                                              height: 200,
+                                              width: 330,
+                                            
                                             ),
                                             Padding(
                                               padding:
@@ -204,14 +187,14 @@ class _requestpageState extends State<requestpage> {
                                 ]),
                               )),
                     ),
-                    SizedBox(
-                      height: 70,
-                    ),
+                    // SizedBox(
+                    //   height:  0,
+                    // ),
 
                     Container(
                       child: SizedBox(
                         width: 340,
-                        height: 46,
+                        height: 40,
                         child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                                 disabledBackgroundColor:
@@ -229,41 +212,7 @@ class _requestpageState extends State<requestpage> {
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        
-        currentIndex: _selectedIndex,
-        onTap: onItemTapped,
-          backgroundColor: Color.fromARGB(249, 249, 249, 249),
-          type: BottomNavigationBarType.fixed,
-          items: const [
-            BottomNavigationBarItem(
-              icon: FaIcon(
-                FontAwesomeIcons.user,
-                size: 20,
-              ),
-              label: 'Profile',
-              
-              
-            ),
-            BottomNavigationBarItem(
-              icon: FaIcon(
-                FontAwesomeIcons.tableCells,
-                size: 20,
-              ),
-              
-              label: 'Requist',
-            ),
-            BottomNavigationBarItem(
-              icon: FaIcon(
-                FontAwesomeIcons.clock,
-                size: 20,
-              ),
-              label: 'Service',
-            ),
-          ]
-          ,
-          ),
+     
     );
   }
 }
