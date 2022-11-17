@@ -79,7 +79,8 @@ flutter:
     - images/bobs_.png
     - images/Jack’sLaundry.png
     - images/rose_3.png
-    - images/profilepic.svg
+    - images/profilepic.png
+    - images/loc.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

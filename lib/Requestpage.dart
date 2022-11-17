@@ -34,6 +34,7 @@ class _requestpageState extends State<requestpage> {
         days: '3.5',
         price: '\$20',
         rate: '3.7'),
+        
   ];
  
 
@@ -64,7 +65,7 @@ class _requestpageState extends State<requestpage> {
 //container-radius
 
               Container(
-                height: height * 0.675,
+                height: height * 0.683,
                 decoration: BoxDecoration(
                   color: CustomColors.container_background,
                   borderRadius: BorderRadius.only(
