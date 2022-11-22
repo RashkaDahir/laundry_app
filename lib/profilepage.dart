@@ -38,22 +38,23 @@ class profilepage extends StatelessWidget {
                     child: Text(
                       'Profile',
                       style:
-                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 40, right: 8),
                     child: Container(
-                      
                       child: InkWell(
                         onTap: () {
-                           Navigator.push(context,
-                MaterialPageRoute(builder: (context) => bottomnavbar()));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => bottomnavbar()));
                         },
                         child: Text(
                           'Edit',
                           style: TextStyle(
-                              fontSize: 20,
+                              fontSize: 18,
                               color: Color(0xff3D5AF1),
                               fontWeight: FontWeight.w500),
                         ),
@@ -66,7 +67,6 @@ class profilepage extends StatelessWidget {
             Container(
               width: double.infinity,
               height: 100,
-              
               child: Row(
                 children: [
                   Padding(
@@ -83,91 +83,141 @@ class profilepage extends StatelessWidget {
                       Text(
                         'First  Last',
                         style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 25, fontFamily: 'Rubik'
-                        ),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 22,
+                            fontFamily: 'Rubik'),
                         textAlign: TextAlign.start,
                       ),
                       Text(
                         'email@gmail.com',
-                        style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18,fontFamily: 'Rubik'),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 12,
+                            fontFamily: 'Rubik'),
                       )
                     ],
                   )
                 ],
               ),
             ),
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
             Padding(
-              padding: const EdgeInsets.only(left: 40,),
+              padding: const EdgeInsets.only(
+                left: 40,
+              ),
               child: Row(
                 children: [
                   Image.asset('images/loc.png'),
-                  SizedBox(width: 5,),
-                  Text('1234 Address Ln', style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,fontStyle: FontStyle.italic,fontFamily: 'Rubik'),)
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Text(
+                    '1234 Address Ln',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                        fontStyle: FontStyle.italic,
+                        fontFamily: 'Rubik'),
+                  )
                 ],
               ),
             ),
-            SizedBox(height: 10,),
-
-             Padding(
-               padding: const EdgeInsets.all(14.0),
-               child: Container(
+            SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(14.0),
+              child: Container(
                 width: double.infinity,
                 height: 200,
-                 child:   ClipRRect(
-                       borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(30),
-          topRight: Radius.circular(30),
-          bottomRight: Radius.circular(30),
-          bottomLeft: Radius.circular(30),
-        ),
-                    
-                        child: GoogleMap(
-                          initialCameraPosition: _kGooglePlex,
-                        ),
-                      
-                    ),
-                
-               ),
-             ),
-
-             MaterialButton(
-              minWidth: 300,
-              onPressed: () {
-
-              },
-              color: Color(0xff3D5AF1),
-
-              child: 
-                  Text('Payment'),
-                  
-              
-             ),
-             MaterialButton(
-              minWidth: 340,
-              onPressed: () {
-
-              },
-              color: Color(0xff3D5AF1),
-
-              child: Text('d'),
-             ),
-             
-             MaterialButton(
-              minWidth: 340,
-              onPressed: () {
-
-              },
-              color: Color(0xffFF7A3C),
-
-              child: Text('d'),
-             ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30),
+                    bottomRight: Radius.circular(30),
+                    bottomLeft: Radius.circular(30),
+                  ),
+                  child: GoogleMap(
+                    initialCameraPosition: _kGooglePlex,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            SizedBox(
             
-          
+              width: 360,
+              height: 48,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(backgroundColor: CustomColors.Payment),
+                
+                onPressed: () {},
+                
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [Text('Payment', style: TextStyle(color: Colors.white,fontSize: 17,fontWeight: FontWeight.w600),), Text('***123',style: TextStyle(color: Colors.white),)],
+                ),
+              ),
+            ),
+            SizedBox(height: 14,),
+             SizedBox(
+              width: 360,
+              height: 48,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(backgroundColor: CustomColors.Payment),
+               
+                onPressed: () {},
+                
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [Text('Support',style: TextStyle(color: Colors.white,fontSize: 17,fontWeight: FontWeight.w600),),Image.asset('images/questions.png')],
+                ),
+              ),
+            ),
+            SizedBox(height: 14,),
+             SizedBox(
+              width: 360,
+              height: 48,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(backgroundColor:CustomColors.btn_logout),
+                
+                onPressed: () {},
+              
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [Text('Logout',style: TextStyle(color: Colors.white,fontSize: 17,fontWeight: FontWeight.w600),),
+                  Icon(Icons.arrow_forward ,color:Colors.white ,)],
+                ),
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 }
+
+
+//  MaterialButton(
+//               minWidth: 340,
+//               onPressed: () {
+
+//               },
+//               color: Color(0xff3D5AF1),
+
+//               child: Text('d'),
+//              ),
+             
+//              MaterialButton(
+//               minWidth: 340,
+//               onPressed: () {
+
+//               },
+//               color: Color(0xffFF7A3C),
+
+//               child: Text('d'),
+//              ),
