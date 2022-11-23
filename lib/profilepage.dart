@@ -7,6 +7,7 @@ import './custom_color.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import './Requestpage.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import './payment.dart';
 
 import 'bottomnavition.dart';
 
@@ -155,7 +156,11 @@ class profilepage extends StatelessWidget {
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(backgroundColor: CustomColors.Payment),
                 
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context,
+                MaterialPageRoute(builder: (context) => paymentpage()));
+          
+                },
                 
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -211,6 +216,7 @@ class profilepage extends StatelessWidget {
 
 //               child: Text('d'),
 //              ),
+
              
 //              MaterialButton(
 //               minWidth: 340,
