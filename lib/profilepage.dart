@@ -3,11 +3,13 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:laundry_app/laundry_login.dart';
 import './custom_color.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import './Requestpage.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import './payment.dart';
+import './laundry_login.dart';
 
 import 'bottomnavition.dart';
 
@@ -190,7 +192,10 @@ class profilepage extends StatelessWidget {
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(backgroundColor:CustomColors.btn_logout),
                 
-                onPressed: () {},
+                onPressed: () {
+                   Navigator.push(context,
+                MaterialPageRoute(builder: (context) => laundry_app()));
+                },
               
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
