@@ -1,34 +1,33 @@
-import 'package:flutter/material.dart';
-import 'package:laundry_app/Requestpage.dart';
-import 'package:laundry_app/SignUp.dart';
-import 'package:laundry_app/bottomnavition.dart';
 
-class laundry_app extends StatefulWidget {
-  const laundry_app({super.key});
+import 'dart:ffi';
+
+import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import './laundry_login.dart';
+
+class Signup extends StatefulWidget {
+  const Signup({super.key});
 
   @override
-  State<laundry_app> createState() => _laundry_appState();
+  State<Signup> createState() => _SignupState();
 }
 
-class _laundry_appState extends State<laundry_app> {
+class _SignupState extends State<Signup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage('images/bg_login.png'), fit: BoxFit.cover),
-        ),
-        child: ListView(
+     body: Container(
+      width: double.infinity,
+      height: double.infinity,
+      decoration: BoxDecoration(
+        image: DecorationImage(image: AssetImage('./images/bg_login.png'),fit: BoxFit.cover)
+      ),
+       child: ListView(children: [
+        SafeArea(child: Column(
           children: [
-            SafeArea(
-                child: Column(
-              children: [
-                _kangaroo_questions_row(),
-
-                SizedBox(
+              _kangaroo_questions_row(),
+                 SizedBox(
                   height: 20,
                 ),
                 Padding(
@@ -43,41 +42,12 @@ class _laundry_appState extends State<laundry_app> {
                   ),
                 ),
 
+              SizedBox(height: 40,),
+              _form(),
+              _Have_already_an_account_signin(),
+              _signup(),
                 SizedBox(
-                  height: 10,
-                ),
-                _form(),
-                SizedBox(
-                  height: 10,
-                ),
-
-                _forget_password(),
-                SizedBox(
-                  height: 10,
-                ),
-
-                _loginbtn(),
-
-                SizedBox(
-                  height: 50,
-                ),
-                Text(
-                  'OR',
-                  style: TextStyle(color: Colors.white),
-                ),
-
-                SizedBox(
-                  height: 25,
-                ),
-
-                _sigupWithEmail(),
-                SizedBox(
-                  height: 15,
-                ),
-
-                _Sign_Up_With_Google(),
-                SizedBox(
-                  height: 150,
+                  height: 180,
                 ),
 
                 Text(
@@ -85,21 +55,17 @@ class _laundry_appState extends State<laundry_app> {
                   style: TextStyle(color: Colors.white),
                   textAlign: TextAlign.end,
                 ),
-                SizedBox(
-                  height: 10,
-                ),
-
-                //  _1browser()
-              ],
-            )),
+                
           ],
-        ),
-      ),
+        ))
+
+       
+       ],),
+     ),
+
     );
   }
-
-  //logo_question
-
+  
   _kangaroo_questions_row() {
     return Padding(
       padding: const EdgeInsets.only(top: 50, right: 50),
@@ -173,20 +139,42 @@ class _laundry_appState extends State<laundry_app> {
       ),
     );
   }
-
-  _form() {
+   _form() {
     return Form(
         child: Column(
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 16, right: 16),
+         padding: const EdgeInsets.only(left: 24, right: 24),
           child: TextField(
             decoration: InputDecoration(
                 contentPadding:
                     const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
                 filled: true,
                 border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(6),
+                    borderRadius: BorderRadius.circular(7),
+                    borderSide: BorderSide.none),
+                fillColor: Colors.white,
+                hintText: 'Full name',
+                hintStyle: TextStyle(color: Colors.grey),
+                prefixIcon: Icon(
+                  Icons.supervised_user_circle_outlined,
+                  color: Color.fromARGB(255, 97, 94, 245),
+                )),
+          ),
+        ),
+        SizedBox(
+          height: 16,
+        ),
+        Padding(
+         padding: const EdgeInsets.only(left: 24, right: 24),
+          child: TextField(
+            obscureText: true,
+            decoration: InputDecoration(
+                contentPadding:
+                    const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+                filled: true,
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(7),
                     borderSide: BorderSide.none),
                 fillColor: Colors.white,
                 hintText: 'Email',
@@ -197,11 +185,11 @@ class _laundry_appState extends State<laundry_app> {
                 )),
           ),
         ),
-        SizedBox(
-          height: 10,
+         SizedBox(
+          height: 16,
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 16, right: 16),
+          padding: const EdgeInsets.only(left: 24, right: 24),
           child: TextField(
             obscureText: true,
             decoration: InputDecoration(
@@ -209,7 +197,7 @@ class _laundry_appState extends State<laundry_app> {
                     const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
                 filled: true,
                 border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(6),
+                    borderRadius: BorderRadius.circular(7),
                     borderSide: BorderSide.none),
                 fillColor: Colors.white,
                 hintText: 'Password',
@@ -219,80 +207,55 @@ class _laundry_appState extends State<laundry_app> {
                   color: Color.fromARGB(255, 97, 94, 245),
                 )),
           ),
-        )
+        ),
+        
       ],
     ));
   }
 
-  _forget_password() {
+   _Have_already_an_account_signin() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
-      children: const [
+      children: [
         Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Text(
-            'Forget Password?',
+          padding: EdgeInsets.all(12.0),
+          child: InkWell(
+           
+          
+            child: Text(
+            'Have already an account? Sign in',
             style: TextStyle(
-                color: Colors.white, fontSize: 15, fontWeight: FontWeight.w500),
+                color: Colors.white, fontSize: 12, fontWeight: FontWeight.w500),
+          ),
           ),
         ),
       ],
     );
   }
-
-  _loginbtn() {
-    return SizedBox(
-        width: 340,
-        height: 45,
-        child: ElevatedButton(
-          // onPressed: () {
-          //   Navigator.push(context,
-          //       MaterialPageRoute(builder: (context) => bottomnavbar()));
-            
-          // },
-          onPressed: sigin,
-          style: ElevatedButton.styleFrom(
-              backgroundColor: Color.fromARGB(255, 33, 89, 243)),
-          child: Text(
-            'Log in',
-            style: TextStyle(fontSize: 17),
-          ),
-        ));
+  
+  _signup() {
+     return Padding(
+       padding: const EdgeInsets.all(8.0),
+       child: SizedBox(
+          width: 320,
+          height: 42,
+          child: ElevatedButton(
+            onPressed: () {
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => laundry_app()));
+              
+            },
+            style: ElevatedButton.styleFrom(
+                backgroundColor: Color.fromARGB(255, 33, 89, 243)),
+            child: Text(
+              'SignUp',
+              style: TextStyle(fontSize: 15),
+            ),
+          )),
+     );
   }
+  
 
-  _sigupWithEmail() {
-    return SizedBox(
-        width: 340,
-        height: 44,
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => Signup()));
-          },
-          style: ElevatedButton.styleFrom(
-              backgroundColor: Color.fromARGB(255, 33, 89, 243)),
-          child: Text(
-            'Sign Up With Email',
-            style: TextStyle(fontSize: 15),
-          ),
-        ));
-  }
-
-  _Sign_Up_With_Google() {
-    return SizedBox(
-        width: 340,
-        height: 44,
-        child: ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
-          child: Text(
-            'Sign Up With Email',
-            style:
-                TextStyle(fontSize: 15, color: Color.fromARGB(255, 5, 42, 189)),
-          ),
-        ));
-  }
-
-  Future<void> sigin() async {
-  }
+  
 }
+
