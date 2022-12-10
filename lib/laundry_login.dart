@@ -6,13 +6,23 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class laundry_app extends StatefulWidget {
-  const laundry_app({super.key});
+  // const laundry_app({super.key});
 
   @override
   State<laundry_app> createState() => _laundry_appState();
 }
 
 class _laundry_appState extends State<laundry_app> {
+  final _emailcontroller = TextEditingController();
+  final _passwordController = TextEditingController();
+
+ 
+  @override
+  void dispose() {
+   _emailcontroller.dispose();
+   _passwordController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -183,6 +193,7 @@ class _laundry_appState extends State<laundry_app> {
         Padding(
           padding: const EdgeInsets.only(left: 16, right: 16),
           child: TextField(
+            controller: _emailcontroller,
             decoration: InputDecoration(
                 contentPadding:
                     const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
@@ -205,6 +216,7 @@ class _laundry_appState extends State<laundry_app> {
         Padding(
           padding: const EdgeInsets.only(left: 16, right: 16),
           child: TextField(
+            controller: _passwordController,
             obscureText: true,
             decoration: InputDecoration(
                 contentPadding:
@@ -252,7 +264,7 @@ class _laundry_appState extends State<laundry_app> {
           //       MaterialPageRoute(builder: (context) => bottomnavbar()));
             
           // },
-          onPressed: sigin,
+           onPressed: sigin,
           style: ElevatedButton.styleFrom(
               backgroundColor: Color.fromARGB(255, 33, 89, 243)),
           child: Text(
@@ -294,7 +306,8 @@ class _laundry_appState extends State<laundry_app> {
           ),
         ));
   }
-
-  Future<void> sigin() async {
+   Future sigin() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(email:_emailcontroller.text.trim(), password:_passwordController.text.trim());
   }
+
 }
