@@ -4,6 +4,7 @@ import 'package:laundry_app/SignUp.dart';
 import 'package:laundry_app/bottomnavition.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:laundry_app/profilepage.dart';
 
 class laundry_app extends StatefulWidget {
   // const laundry_app({super.key});
@@ -307,7 +308,33 @@ class _laundry_appState extends State<laundry_app> {
         ));
   }
    Future sigin() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(email:_emailcontroller.text.trim(), password:_passwordController.text.trim());
+   if(_emailcontroller.text.isEmpty){
+    return showDialog(context: context, builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text('enter you email'),
+      );
+      
+    });
+
+  }else if(_passwordController.text.isEmpty){
+    return showDialog(context: context, builder: (BuildContext  context) {
+      return AlertDialog(
+        title: Text('enter-password'),
+      );
+      
+    });
+
+  }else {
+    final User =  await FirebaseAuth.instance.signInWithEmailAndPassword(email: _emailcontroller.text, password: _passwordController.text);
+    final currenUser = FirebaseAuth.instance.currentUser;
+    assert(User.user!.uid == currenUser!.uid);
+
+        Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(builder: (BuildContext context) {
+          return bottomnavbar();
+        }), (route) => false);
+    
+  }
   }
 
 }

@@ -4,7 +4,13 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:laundry_app/bottomnavition.dart';
+
+import 'package:laundry_app/profilepage.dart';
+
 import './laundry_login.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Signup extends StatefulWidget {
   const Signup({super.key});
@@ -14,6 +20,15 @@ class Signup extends StatefulWidget {
 }
 
 class _SignupState extends State<Signup> {
+   final _emailcontroller = TextEditingController();
+  final _passwordController = TextEditingController();
+  
+  @override
+  void dispose() {
+   _emailcontroller.dispose();
+   _passwordController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -143,32 +158,13 @@ class _SignupState extends State<Signup> {
     return Form(
         child: Column(
       children: [
+       
+        
         Padding(
          padding: const EdgeInsets.only(left: 24, right: 24),
           child: TextField(
-            decoration: InputDecoration(
-                contentPadding:
-                    const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-                filled: true,
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(7),
-                    borderSide: BorderSide.none),
-                fillColor: Colors.white,
-                hintText: 'Full name',
-                hintStyle: TextStyle(color: Colors.grey),
-                prefixIcon: Icon(
-                  Icons.supervised_user_circle_outlined,
-                  color: Color.fromARGB(255, 97, 94, 245),
-                )),
-          ),
-        ),
-        SizedBox(
-          height: 16,
-        ),
-        Padding(
-         padding: const EdgeInsets.only(left: 24, right: 24),
-          child: TextField(
-            obscureText: true,
+            controller: _emailcontroller,
+            
             decoration: InputDecoration(
                 contentPadding:
                     const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
@@ -191,6 +187,7 @@ class _SignupState extends State<Signup> {
         Padding(
           padding: const EdgeInsets.only(left: 24, right: 24),
           child: TextField(
+            controller: _passwordController,
             obscureText: true,
             decoration: InputDecoration(
                 contentPadding:
@@ -240,11 +237,7 @@ class _SignupState extends State<Signup> {
           width: 320,
           height: 42,
           child: ElevatedButton(
-            onPressed: () {
-              Navigator.push(context,
-                MaterialPageRoute(builder: (context) => laundry_app()));
-              
-            },
+            onPressed: registeration,
             style: ElevatedButton.styleFrom(
                 backgroundColor: Color.fromARGB(255, 33, 89, 243)),
             child: Text(
@@ -257,5 +250,40 @@ class _SignupState extends State<Signup> {
   
 
   
+
+Future registeration() async {
+  
+  if(_emailcontroller.text.isEmpty){
+    return showDialog(context: context, builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text('enter you email'),
+      );
+      
+    });
+
+  }else if(_passwordController.text.isEmpty){
+    return showDialog(context: context, builder: (BuildContext  context) {
+      return AlertDialog(
+        title: Text('enter-password'),
+      );
+      
+    });
+
+  }else {
+    final User =  await FirebaseAuth.instance.createUserWithEmailAndPassword(email: _emailcontroller.text, password: _passwordController.text);
+
+
+    
+    final currenUser = FirebaseAuth.instance.currentUser;
+    assert(User.user!.uid == currenUser!.uid);
+
+        Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(builder: (BuildContext context) {
+          return bottomnavbar();
+        }), (route) => false);
+    
+  }
+
+  }
 }
 
