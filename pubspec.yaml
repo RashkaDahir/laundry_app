@@ -90,6 +90,12 @@ flutter:
     - images/profilepic.png
     - images/loc.png
     - images/Credit Card.png
+    - images/user.svg
+    - images/req.svg
+    - images/clock.svg
+    - images/userselecting.svg
+    - images/reqselecting.svg
+    - images/clockselecting.svg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import './profilepage.dart';
 import './Requestpage.dart';
 import './servicepage.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class bottomnavbar extends StatefulWidget {
   const bottomnavbar({super.key});
@@ -32,34 +33,29 @@ class _bottomnavbarState extends State<bottomnavbar> {
     return Scaffold(
       body: pageList[_selectedIndex],
        bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        onTap: onItemTapped,
-        backgroundColor: Color.fromARGB(249, 249, 249, 249),
-        type: BottomNavigationBarType.fixed,
-        items: const [
-          BottomNavigationBarItem(
-            icon: FaIcon(
-              FontAwesomeIcons.user,
-              size: 20,
-            ),
-            label: 'Profile',
-          ),
-          BottomNavigationBarItem(
-            icon: FaIcon(
-              FontAwesomeIcons.tableCells,
-              size: 20,
-            ),
-            label: 'Requist',
-          ),
-          BottomNavigationBarItem(
-            icon: FaIcon(
-              FontAwesomeIcons.clock,
-              size: 20,
-            ),
-            label: 'Service',
-          ),
-        ],
-      ),
+        backgroundColor: Color(0xffF9F9F9F0),
+        
+          
+          selectedItemColor: Color(0xff3D5AF1),
+          
+          onTap: onItemTapped,
+          currentIndex: _selectedIndex,
+          items: [
+            BottomNavigationBarItem(
+                icon: _selectedIndex == 0
+                    ? SvgPicture.asset('images/userselecting.svg')
+                    : SvgPicture.asset('images/user.svg',),
+                label: 'Profile'),
+            BottomNavigationBarItem(
+                icon: _selectedIndex == 1
+                    ? SvgPicture.asset('images/reqselecting.svg'):SvgPicture.asset('images/req.svg'),
+                label: 'Request'),
+            BottomNavigationBarItem(
+                icon: _selectedIndex == 2
+                    ? SvgPicture.asset('images/clockselecting.svg')
+                    : SvgPicture.asset('images/clock.svg'),
+                label: 'Services'),
+          ]),
     );
   }
 }
