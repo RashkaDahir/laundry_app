@@ -96,6 +96,7 @@ flutter:
     - images/userselecting.svg
     - images/reqselecting.svg
     - images/clockselecting.svg
+    - images/paymentpersons.jpg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

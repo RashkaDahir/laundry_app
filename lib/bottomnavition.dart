@@ -43,17 +43,17 @@ class _bottomnavbarState extends State<bottomnavbar> {
           items: [
             BottomNavigationBarItem(
                 icon: _selectedIndex == 0
-                    ? SvgPicture.asset('images/userselecting.svg')
-                    : SvgPicture.asset('images/user.svg',),
+                    ? SvgPicture.asset('images/userselecting.svg',width: 26,)
+                    : SvgPicture.asset('images/user.svg',width:23),
                 label: 'Profile'),
             BottomNavigationBarItem(
                 icon: _selectedIndex == 1
-                    ? SvgPicture.asset('images/reqselecting.svg'):SvgPicture.asset('images/req.svg'),
+                    ? SvgPicture.asset('images/reqselecting.svg',width:26 ,):SvgPicture.asset('images/req.svg',width:20),
                 label: 'Request'),
             BottomNavigationBarItem(
                 icon: _selectedIndex == 2
-                    ? SvgPicture.asset('images/clockselecting.svg')
-                    : SvgPicture.asset('images/clock.svg'),
+                    ? SvgPicture.asset('images/clockselecting.svg',width:26)
+                    : SvgPicture.asset('images/clock.svg',width:20),
                 label: 'Services'),
           ]),
     );
